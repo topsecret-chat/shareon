@@ -1,6 +1,6 @@
 {
   "name": "shareon",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Lightweight, stylish and ethical share buttons for popular social networks",
   "license": "MIT",
   "homepage": "https://shareon.js.org",
@@ -11,10 +11,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://codeberg.org/kytta/shareon.git"
+    "url": "https://github.com/kytta/shareon.git"
   },
   "bugs": {
-    "url": "https://codeberg.org/kytta/shareon/issues"
+    "url": "https://github.com/kytta/shareon/issues"
   },
   "author": {
     "name": "Nikita Karamov",
@@ -26,6 +26,7 @@
     "https://liberapay.com/kytta",
     "https://www.paypal.com/paypalme/NickKaramoff"
   ],
+  "type": "module",
   "main": "./dist/shareon.umd.js",
   "unpkg": "./dist/shareon.iife.js",
   "jsdelivr": "./dist/shareon.iife.js",
@@ -41,9 +42,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "pnpm run build:js && pnpm run build:css",
-    "build:js": "vite build",
-    "build:css": "postcss src/shareon.css -o dist/shareon.min.css --map",
+    "build": "vite build",
     "dev": "vite",
     "lint": "prettier --check . && eslint .",
     "size": "size-limit",
@@ -53,21 +52,52 @@
     "postpublish": "rm -rf ./package"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "^7.0.5",
-    "autoprefixer": "^10.4.2",
-    "clean-publish": "^4.0.0",
-    "eslint": "^8.8.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-unicorn": "^40.1.0",
-    "postcss": "^8.4.6",
-    "postcss-banner": "^4.0.1",
-    "postcss-calc": "^8.2.3",
-    "postcss-cli": "^9.1.0",
+    "@size-limit/preset-small-lib": "^8.2.4",
+    "autoprefixer": "^10.4.14",
+    "clean-publish": "^4.0.1",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-unicorn": "^46.0.0",
+    "postcss": "^8.4.19",
+    "postcss-calc": "^8.2.4",
     "postcss-css-variables": "^0.18.0",
-    "postcss-csso": "^6.0.0",
-    "prettier": "^2.5.1",
-    "size-limit": "^7.0.5",
-    "vite": "^2.8.0"
+    "postcss-csso": "^6.0.1",
+    "prettier": "^2.8.5",
+    "size-limit": "^8.2.4",
+    "vite": "^4.2.1"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:unicorn/recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "overrides": [
+      {
+        "files": [
+          "vite.config.js"
+        ],
+        "env": {
+          "node": true,
+          "browser": false
+        }
+      }
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-css-variables": {},
+      "postcss-calc": {},
+      "autoprefixer": {},
+      "postcss-csso": {}
+    }
   },
   "size-limit": [
     {
@@ -84,6 +114,9 @@
   },
   "clean-publish": {
     "withoutPublish": true,
-    "tempDir": "package"
+    "tempDir": "package",
+    "fields": [
+      "postcss"
+    ]
   }
 }

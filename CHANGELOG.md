@@ -4,6 +4,50 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2023-03-20
+
+### Added
+
+- "Copy URL" button in https://github.com/kytta/shareon/pull/44
+
+### Behind-the-scenes
+
+- Added pre-commit hooks in https://github.com/kytta/shareon/pull/47
+- Fixed `size-limit-action` branch in https://github.com/kytta/shareon/pull/48
+
+## [2.0.2] - 2023-01-25
+
+### Changed
+
+- Sourcemaps are not being output any more
+  - They're being loaded automatically and don't serve any other purpose.
+    Disabling those helps us save a few bytes
+- Change minifier to esbuild (instead of terser)
+  - This disables the minification of ESM, which is a good thing, because
+    otherwise the file can't be tree-shaken properly
+- Shareon is now `type: "module"`
+  - This doesn't change anything for the end users
+- Banner was removed
+  - It took unnecessary bytes, and embedding it was somewhat buggy
+- Browserslist config now targets `defaults`
+  - Opera 90 and Samsung Browser 17 aren't targeted. Shareon will still work on
+    these browsers.
+  - the previous config (using `last 3 versions instead` of `last 2 versions`)
+    didn't change coverage that much
+
+### Behind-the-scenes
+
+- Updated to Vite v4
+- CSS is now bundled using Vite
+  - this makes the build script leaner; it's still processed with PostCSS
+- Moved PostCSS and ESLint config to package.json
+
+## [2.0.1] - 2023-01-23
+
+### Changed
+
+- Mastodon button updated to match the new style (#42)
+
 ## [2.0.0] - 2021-02-13
 
 ### Added
@@ -236,28 +280,31 @@ Initial release of shareon
 - Add Telegram button
 - Add Twitter button
 
-[unreleased]: https://codeberg.org/kytta/shareon/compare/v2.0.0...main
-[2.0.0]: https://codeberg.org/kytta/shareon/compare/v1.6.3...v2.0.0
-[1.6.2]: https://codeberg.org/kytta/shareon/compare/v1.6.2...v1.6.3
-[1.6.2]: https://codeberg.org/kytta/shareon/compare/v1.6.1...v1.6.2
-[1.6.1]: https://codeberg.org/kytta/shareon/compare/v1.6.0...v1.6.1
-[1.6.0]: https://codeberg.org/kytta/shareon/compare/v1.5.0...v1.6.0
-[1.5.0]: https://codeberg.org/kytta/shareon/compare/v1.4.5...v1.5.0
-[1.4.5]: https://codeberg.org/kytta/shareon/compare/v1.4.2...v1.4.5
-[1.4.2]: https://codeberg.org/kytta/shareon/compare/v1.4.1...v1.4.2
-[1.4.1]: https://codeberg.org/kytta/shareon/compare/v1.4.0...v1.4.1
-[1.4.0]: https://codeberg.org/kytta/shareon/compare/v1.3.1...v1.4.0
-[1.3.1]: https://codeberg.org/kytta/shareon/compare/v1.3.0...v1.3.1
-[1.3.0]: https://codeberg.org/kytta/shareon/compare/v1.2.1...v1.3.0
-[1.2.1]: https://codeberg.org/kytta/shareon/compare/v1.2.0...v1.2.1
-[1.2.0]: https://codeberg.org/kytta/shareon/compare/v1.1.5...v1.2.0
-[1.1.5]: https://codeberg.org/kytta/shareon/compare/v1.1.4...v1.1.5
-[1.1.4]: https://codeberg.org/kytta/shareon/compare/v1.1.3...v1.1.4
-[1.1.3]: https://codeberg.org/kytta/shareon/compare/v1.1.2...v1.1.3
-[1.1.2]: https://codeberg.org/kytta/shareon/compare/v1.1.1...v1.1.2
-[1.1.1]: https://codeberg.org/kytta/shareon/compare/v1.1.0...v1.1.1
-[1.1.0]: https://codeberg.org/kytta/shareon/compare/v1.0.0...v1.1.0
-[1.0.0]: https://codeberg.org/kytta/shareon/compare/v1.0.0-beta.3...v1.0.0
-[1.0.0-beta.3]: https://codeberg.org/kytta/shareon/compare/v1.0.0-beta.2...v1.0.0-beta.3
-[1.0.0-beta.2]: https://codeberg.org/kytta/shareon/compare/v1.0.0-beta.1...v1.0.0-beta.2
-[1.0.0-beta.1]: https://codeberg.org/kytta/shareon/compare/3722ada1da60abb768e00621e66b269f8fa60689...v1.0.0-beta.1
+[unreleased]: https://github.com/kytta/shareon/compare/v2.1.0...main
+[2.1.0]: https://github.com/kytta/shareon/compare/v2.0.2...v2.1.0
+[2.0.2]: https://github.com/kytta/shareon/compare/v2.0.1...v2.0.2
+[2.0.1]: https://github.com/kytta/shareon/compare/v2.0.0...v2.0.1
+[2.0.0]: https://github.com/kytta/shareon/compare/v1.6.3...v2.0.0
+[1.6.2]: https://github.com/kytta/shareon/compare/v1.6.2...v1.6.3
+[1.6.2]: https://github.com/kytta/shareon/compare/v1.6.1...v1.6.2
+[1.6.1]: https://github.com/kytta/shareon/compare/v1.6.0...v1.6.1
+[1.6.0]: https://github.com/kytta/shareon/compare/v1.5.0...v1.6.0
+[1.5.0]: https://github.com/kytta/shareon/compare/v1.4.5...v1.5.0
+[1.4.5]: https://github.com/kytta/shareon/compare/v1.4.2...v1.4.5
+[1.4.2]: https://github.com/kytta/shareon/compare/v1.4.1...v1.4.2
+[1.4.1]: https://github.com/kytta/shareon/compare/v1.4.0...v1.4.1
+[1.4.0]: https://github.com/kytta/shareon/compare/v1.3.1...v1.4.0
+[1.3.1]: https://github.com/kytta/shareon/compare/v1.3.0...v1.3.1
+[1.3.0]: https://github.com/kytta/shareon/compare/v1.2.1...v1.3.0
+[1.2.1]: https://github.com/kytta/shareon/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/kytta/shareon/compare/v1.1.5...v1.2.0
+[1.1.5]: https://github.com/kytta/shareon/compare/v1.1.4...v1.1.5
+[1.1.4]: https://github.com/kytta/shareon/compare/v1.1.3...v1.1.4
+[1.1.3]: https://github.com/kytta/shareon/compare/v1.1.2...v1.1.3
+[1.1.2]: https://github.com/kytta/shareon/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/kytta/shareon/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/kytta/shareon/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/kytta/shareon/compare/v1.0.0-beta.3...v1.0.0
+[1.0.0-beta.3]: https://github.com/kytta/shareon/compare/v1.0.0-beta.2...v1.0.0-beta.3
+[1.0.0-beta.2]: https://github.com/kytta/shareon/compare/v1.0.0-beta.1...v1.0.0-beta.2
+[1.0.0-beta.1]: https://github.com/kytta/shareon/compare/3722ada1da60abb768e00621e66b269f8fa60689...v1.0.0-beta.1

@@ -8,7 +8,7 @@
 - **Stylish.** Uses official vector logos and colours with no visual mess.
 - **Ethical.** Embeds no tracking code. JS is required only for the setup.
 
-<a href="https://shareon.js.org/"><img src="./assets/demo@2x.png" height="84" width="392" alt="Shareon demo screenshot"></a>
+<a href="https://shareon.js.org/"><img src="./assets/demo@2x.png" height="84" width="477" alt="Shareon demo screenshot"></a>
 
 See the live demo at [shareon.js.org](https://shareon.js.org)
 
@@ -88,7 +88,8 @@ Shareon.init();
 ## Usage
 
 Create a container with class `shareon` and populate it with elements, class
-names of which match the names of the social networks:
+names of which match the names of the social networks (or `copy-url`, for the
+'Copy URL' button:
 
 ```html
 <div class="shareon">
@@ -106,6 +107,7 @@ names of which match the names of the social networks:
   <a class="viber"></a>
   <a class="vkontakte"></a>
   <a class="whatsapp"></a>
+  <a class="copy-url"></a>
 </div>
 ```
 
@@ -179,4 +181,4 @@ but the icons themselves may be subject to copyright of the respective owners.
 
 ---
 
-This project is hosted on Codeberg: <https://codeberg.org/kytta/shareon>
+This project is hosted on GitHub: <https://github.com/kytta/shareon>
