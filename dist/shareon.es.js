@@ -1,7 +1,7 @@
 const s = {
   facebook: (t) => `https://www.facebook.com/sharer/sharer.php?u=${t.url}`,
   linkedin: (t) => `https://www.linkedin.com/sharing/share-offsite/?url=${t.url}`,
-  mastodon: (t) => `https://toot.kytta.dev/?text=${t.title}%0D%0A${t.url}${t.text ? `%0D%0A%0D%0A${t.text}` : ""}${t.via ? `%0D%0A%0D%0A${t.via}` : ""}`,
+  mastodon: (t) => `https://toot.kytta.dev/?text=${t.title}${t.text ? `%0D%0A%0D%0A${t.text}` : ""}%0D%0A${t.url}${t.via ? `%0D%0A%0D%0A${t.via}` : ""}`,
   messenger: (t) => `https://www.facebook.com/dialog/send?app_id=${t.fbAppId}&link=${t.url}&redirect_uri=${t.url}`,
   odnoklassniki: (t) => `https://connect.ok.ru/offer?url=${t.url}&title=${t.title}${t.media ? `&imageUrl=${t.media}` : ""}`,
   pinterest: (t) => `https://pinterest.com/pin/create/button/?url=${t.url}&description=${t.title}${t.media ? `&media=${t.media}` : ""}`,
@@ -9,9 +9,9 @@ const s = {
   reddit: (t) => `https://www.reddit.com/submit?title=${t.title}&url=${t.url}`,
   telegram: (t) => `https://telegram.me/share/url?url=${t.url}${t.text ? `&text=${t.text}` : ""}`,
   twitter: (t) => `https://twitter.com/intent/tweet?url=${t.url}&text=${t.title}${t.via ? `&via=${t.via}` : ""}`,
-  viber: (t) => `viber://forward?text=${t.title}%0D%0A${t.url}${t.text ? `%0D%0A%0D%0A${t.text}` : ""}`,
+  viber: (t) => `viber://forward?text=${t.title}${t.text ? `%0D%0A%0D%0A${t.text}` : ""}%0D%0A${t.url}`,
   vkontakte: (t) => `https://vk.com/share.php?url=${t.url}&title=${t.title}${t.media ? `&image=${t.media}` : ""}`,
-  whatsapp: (t) => `https://wa.me/?text=${t.title}%0D%0A${t.url}${t.text ? `%0D%0A%0D%0A${t.text}` : ""}`
+  whatsapp: (t) => `https://wa.me/?text=${t.title}${t.text ? `%0D%0A%0D%0A${t.text}` : ""}%0D%0A${t.url}`
 }, p = (t) => () => {
   window.open(t, "_blank", "noopener,noreferrer");
 }, u = () => {
