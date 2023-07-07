@@ -36,7 +36,7 @@
       "import": "./dist/shareon.es.js",
       "require": "./dist/shareon.umd.js"
     },
-    "./css": "./dist/shareon.min.css"
+    "./css": "./dist/shareon.css"
   },
   "files": [
     "dist"
@@ -102,7 +102,7 @@
   "size-limit": [
     {
       "limit": "7 KB",
-      "path": "./dist/shareon.min.css"
+      "path": "./dist/shareon.css"
     },
     {
       "limit": "1 KB",

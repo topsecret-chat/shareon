@@ -15,7 +15,7 @@ export default defineConfig({
         // Workaround for a correct file name
         // See: https://github.com/vitejs/vite/issues/4863
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === "style.css") return "shareon.min.css";
+          if (assetInfo.name === "style.css") return "shareon.css";
           return assetInfo.name;
         },
       },

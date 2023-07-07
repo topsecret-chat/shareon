@@ -18,7 +18,7 @@ Simply load the needed files from the CDN:
 
 ```html
 <link
-  href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.min.css"
+  href="https://cdn.jsdelivr.net/npm/shareon@2/dist/shareon.css"
   rel="stylesheet"
 />
 <script
